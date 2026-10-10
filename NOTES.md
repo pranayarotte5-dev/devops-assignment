@@ -40,6 +40,25 @@ iIf both engineers run `terraform apply`, they may attempt conflicting changes o
 
 
 
+#Task4 
 
+ecr:* across all repositories.
+ecs:* across all clusters and services.
+S3 upload, overwrite, and delete permissions.
+Broad administrator permissions such as PowerUserAccess.
+iam:*; it permits only iam:PassRole for the two approved ECS roles
+
+#Task 5
+
+## Issue 1: Incorrect principal in the trust policy
+
+The original trust policy used `arn:aws:iam::000000000000:user/roleB`. This ARN identifies an IAM user, not an IAM role. Since roleB is an IAM role, the correct principal is `arn:aws:iam::000000000000:role/roleB`.
+
+
+## Issue 2: Overly broad S3 permissions
+
+The original permissions policy used `s3:*` with `Resource: "*"`. This grants S3 permissions across all resources covered by those actions, which violates least privilege.
+
+I replaced it with specific S3 actions and resource ARNs for one named bucket and its objects. Bucket-level actions use the bucket ARN, while object-level actions use the bucket ARN followed by `/*`.
 
 
