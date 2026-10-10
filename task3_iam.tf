@@ -1,16 +1,5 @@
 
-# ============================================================
 # TASK 3 — MULTI-ACCOUNT IAM AND CROSS-ACCOUNT ACCESS
-# File: task3_iam.tf
-# Code-only assessment configuration; do not deploy yet.
-# ============================================================
-
-# ------------------------------------------------------------
-# PROVIDERS
-# These profiles must be configured locally if you ever deploy.
-# Account IDs below are assignment placeholders.
-# ------------------------------------------------------------
-
 provider "aws" {
   alias   = "account_a"
   region  = "us-east-1"
