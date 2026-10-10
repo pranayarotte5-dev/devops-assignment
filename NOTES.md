@@ -33,3 +33,13 @@ The configuration exports:
 These outputs make it easier to identify and reference the provisioned instances.
 
 
+
+# Task 2 — Remote State and Locking
+
+iIf both engineers run `terraform apply`, they may attempt conflicting changes or create duplicate resources The S3 backend gives authorised engineers a shared state location. DynamoDB locking coordinates state-changing operations against that state.
+
+
+
+
+
+
